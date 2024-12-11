@@ -1,0 +1,79 @@
+GET http://localhost:3001/cursos
+########
+
+POST http://ocalhost:3001/usuario/validate
+Content-Type: application/json
+
+{
+    "correo": "juan.perez@example.com",
+    "password": "contrasena123",
+  
+  }
+###
+
+PUT http://localhost:3001/cursos/
+Content-Type: application/json
+
+  {
+    "id": 2,
+    "nombre": "Programacion Web",
+    "nivel": 5,
+    "carrera": "Sistemas",
+    "idDocente": 2
+  }
+
+###
+
+GET http://localhost:3001/cursos/2
+###
+
+DELETE http://localhost:3001/cursos/3
+
+########
+
+POST http://localhost:3001/cursos/
+Content-Type: application/json
+
+{
+    "id": 7,
+    "nombre": "Gestion de Proyectos",
+    "nivel": 5,
+    "carrera": "Sistemas",
+    "idDocente": 2
+  }
+
+############
+GET http://localhost:3001/usuarios
+
+#############
+POST http://localhost:3001/usuarios/validate
+Content-Type: application/json
+
+{
+{
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "correo": "juan@validamente.cpi.com",
+  "DNI": "12345678",
+  "NumCelular": "987654321",
+  "contrasena": "password123",
+  "fecha_nacimiento": "1990-01-01"
+}
+
+}
+
+
+################
+PUT http://localhost:3001/citas/
+Content-Type: application/json
+
+{
+    
+  "fecha": "2024-10-10",
+  "hora": "10:00:00",
+  "motivo": "Consulta psicológica inicial",
+  "pacienteId": 1  // El id del paciente
+
+
+}
+
