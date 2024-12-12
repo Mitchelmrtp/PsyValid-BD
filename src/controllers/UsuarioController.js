@@ -145,7 +145,7 @@ const validate = async (req, res) => {
     const usuario = await UsuarioService.validate(correo, contrasena);
 
     if (usuario) {
-      return res.status(200).json(usuario);  // Devolveremos el objeto usuario con el rol
+      return res.status(200).json(usuario); 
     } else {
       return res.status(404).json({ message: 'Usuario o contraseña incorrectos' });
     }
@@ -154,7 +154,6 @@ const validate = async (req, res) => {
   }
 };
 
-// Obtener los pacientes de un psicólogo
 const getPacientesByPsicologo = async (req, res) => {
   const { id_psicologo } = req.params;
   try {
@@ -165,7 +164,6 @@ const getPacientesByPsicologo = async (req, res) => {
   }
 };
 
-// Obtener el psicólogo de un paciente
 const getPsicologoByPaciente = async (req, res) => {
   const { idPaciente } = req.params;
   try {
