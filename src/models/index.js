@@ -6,6 +6,15 @@ import sequelize from '../config/database.js';
 import Usuario from './usuario.js';
 import Paciente from './paciente.js';
 import Psicologo from './Psicologo.js';
+import Cuestionario from './Cuestionario.js';
+import Cita from './Cita.js';
+import Sesion from './Sesion.js';
+import Comunicacion from './Comunicacion.js';
+import ProgresoPaciente from './Progreso_Paciente.js';
+import DisponibilidadPsicologo from './Disponibilidad.js';
+import Administrador from './Administrador.js';
+import Historial from './Historial.js';
+
 
 
 // Definir relaciones entre los modelos
@@ -17,13 +26,12 @@ import Psicologo from './Psicologo.js';
  Usuario.hasOne(Psicologo, { foreignKey: 'usuario_id' });
  Psicologo.belongsTo(Usuario, { foreignKey: 'usuario_id' });
 
- //Usuario.hasOne(Administrador, { foreignKey: 'usuario_id' });
- //Administrador.belongsTo(Usuario, { foreignKey: 'usuario_id' });
+ Usuario.hasOne(Administrador, { foreignKey: 'usuario_id' });
+ Administrador.belongsTo(Usuario, { foreignKey: 'usuario_id' });
 
- /*
  // Paciente relationships
- Paciente.hasOne(CuestionarioInicial, { foreignKey: 'paciente_id' });
- CuestionarioInicial.belongsTo(Paciente, { foreignKey: 'paciente_id' });
+ Paciente.hasOne(Cuestionario, { foreignKey: 'paciente_id' });
+ Cuestionario.belongsTo(Paciente, { foreignKey: 'paciente_id' });
 
  Paciente.hasMany(Cita, { foreignKey: 'paciente_id' });
  Cita.belongsTo(Paciente, { foreignKey: 'paciente_id' });
@@ -76,16 +84,16 @@ import Psicologo from './Psicologo.js';
  Cita.hasMany(Historial, { foreignKey: 'cita_id' });
  Historial.belongsTo(Cita, { foreignKey: 'cita_id' });
 
-*/
+
 export {
   Usuario,
   Paciente,
   Psicologo,
-  /*CuestionarioInicial,
+  Cuestionario,
   Cita,
   Sesion,
   Comunicacion,
   ProgresoPaciente,
   DisponibilidadPsicologo,
-  Historial */
+  Historial 
 };

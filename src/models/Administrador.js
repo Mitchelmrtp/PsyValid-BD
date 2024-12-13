@@ -1,21 +1,27 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';
+import sequelize from '../config/database.js'; 
 
-const ChatMessage = sequelize.define('ChatMessage', {
-  room: {
-    type: DataTypes.STRING,
-    allowNull: false,
+const Administrador = sequelize.define('Administrador', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
   },
-  user: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  nombres: {
+    type: DataTypes.STRING(30),
+    allowNull: false
   },
-  message: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
+  apellidos: {
+    type: DataTypes.STRING(30),
+    allowNull: false
+  }
+  
 }, {
-  timestamps: true,
+  
+  freezeTableName: true,  
+  timestamps: false,
+  tableName: 'Administrador'
+  
 });
 
-export default ChatMessage;
+export default Administrador;

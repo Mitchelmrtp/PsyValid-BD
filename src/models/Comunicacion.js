@@ -1,26 +1,18 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const Reporte = sequelize.define('Reporte', {
-  id_reporte: {
+const Comunicacion = sequelize.define('Comunicacion', {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  Sesion_id_sesion: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-  },
-  descripcion: {
+  tipo_comunicacion: {
     type: DataTypes.STRING(30),
-    allowNull: true,
-  },
-  fecha: {
-    type: DataTypes.DATE,
     allowNull: true,
   }
 }, {
   timestamps: false
 });
 
-export default Reporte;
+export default Comunicacion;

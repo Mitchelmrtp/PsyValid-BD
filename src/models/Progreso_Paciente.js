@@ -1,26 +1,28 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const RevisionDiagnostica = sequelize.define('RevisionDiagnostica', {
-  idDiagnostico: {
+const ProgresoPaciente = sequelize.define('ProgresoPaciente', {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  Diagnostico: {
+  descripcion_progreso: {
     type: DataTypes.STRING(30),
     allowNull: true,
   },
-  pruebaDianostica: {
-    type: DataTypes.STRING(30),
+  fecha_actualizacion: {
+    type: DataTypes.DATEONLY,
     allowNull: true,
   },
-  SolicitarCita_idSolicitarCita: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  }
+  porcentaje_progreso: {
+    type: DataTypes.DECIMAL(5, 2),
+    allowNull: true,
+  },
 }, {
-  timestamps: false
+  freezeTableName: true,  
+  timestamps: false,
+  tableName: 'ProgresoPaciente'
 });
 
-export default RevisionDiagnostica;
+export default ProgresoPaciente;

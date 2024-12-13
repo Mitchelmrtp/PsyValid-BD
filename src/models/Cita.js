@@ -2,8 +2,8 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 import Paciente from './paciente.js';
 
-const SolicitarCita = sequelize.define('SolicitarCita', {
-  idSolicitarCita: {
+const Cita = sequelize.define('Cita', {
+  id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -16,20 +16,23 @@ const SolicitarCita = sequelize.define('SolicitarCita', {
     type: DataTypes.TIME,
     allowNull: false,
   },
-  motivo: {
+  estado: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  Paciente_idPaciente: {
+  cantidad_reprogramaciones: {
     type: DataTypes.INTEGER,
-    references: {
-      model: Paciente,
-      key: 'idPaciente',
-    },
+    allowNull: true,
   },
+  descripcion_motivo: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  }
+  
 }, {
-  tableName: 'SolicitarCita',
+  tableName: 'Cita',
+  freezeTableName: true,  
   timestamps: false,
 });
 
-export default SolicitarCita;
+export default Cita;

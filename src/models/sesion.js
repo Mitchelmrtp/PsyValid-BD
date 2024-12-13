@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
 const Sesion = sequelize.define('Sesion', {
-  idSesion: {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
@@ -15,31 +15,21 @@ const Sesion = sequelize.define('Sesion', {
     type: DataTypes.TIME,
     allowNull: false,
   },
-  reporteProgreso: {
+  tipo_sesion: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  reporteEmociones: {
+  informe: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  Paciente_idPaciente: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Paciente',
-      key: 'idPaciente',
-    },
-    onDelete: 'CASCADE',
-  },
-  Psicologo_idPsicologo: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Psicologo',
-      key: 'id_psicologo',  // Asegúrate de que el nombre coincide con el de Psicologo
-    },
-    onDelete: 'CASCADE',
-  },
+  archivo_pdf: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  }
+
 }, {
+  freezeTableName: true,  
   timestamps: false,
   tableName: 'Sesion'
 });

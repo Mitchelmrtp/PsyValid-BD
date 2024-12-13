@@ -28,6 +28,7 @@ const Psicologo = sequelize.define('Psicologo', {
     allowNull: false
   }
 }, {
+  freezeTableName: true,  
   timestamps: false,
   tableName: 'Psicologo'
 });

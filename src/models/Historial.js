@@ -2,21 +2,32 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
 const Historial = sequelize.define('Historial', {
-  idHistorial: {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  Descripción: {
+  fecha_reprogramacion: {
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  fecha_original: {
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  fecha_nueva: {
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+  razon_reprogramación: {
     type: DataTypes.STRING(250),
     allowNull: true,
-  },
-  Paciente_idPaciente: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
   }
+
 }, {
-  timestamps: false
+  freezeTableName: true,  
+  timestamps: false,
+  tableName: 'Historial'
 });
 
 export default Historial;

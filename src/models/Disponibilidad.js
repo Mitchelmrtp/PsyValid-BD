@@ -1,30 +1,28 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 
-const Horario = sequelize.define('Horario', {
-  id_horario: {
+const Disponibilidad = sequelize.define('Disponibilidad', {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  evento: {
-    type: DataTypes.STRING(20),
-    allowNull: true,
-  },
   fecha: {
-    type: DataTypes.DATE,
+    type: DataTypes.DATEONLY,
     allowNull: true,
   },
   hora: {
     type: DataTypes.DATE,
     allowNull: true,
   },
-  id_psicologo: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
+  disponible: {
+    type: DataTypes.BOOLEAN,
+    allowNull: true,
   }
 }, {
-  timestamps: false
+  freezeTableName: true,  
+  timestamps: false,
+  tableName: 'Disponibilidad'
 });
 
-export default Horario;
+export default Disponibilidad;
