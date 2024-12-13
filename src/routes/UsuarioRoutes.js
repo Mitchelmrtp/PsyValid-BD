@@ -5,13 +5,9 @@ const router = express.Router();
 
 router.get('/', UsuarioController.findAll);
 router.get('/:id', UsuarioController.findOne);
-router.post('/', UsuarioController.create);
-router.delete('/:id', UsuarioController.remove);
-router.post('/validate', UsuarioController.validate);  // Para la validación de login
-router.get('/psicologo/:psicologoId/pacientes', UsuarioController.getPacientesByPsicologo);
-router.get('/paciente/:pacienteId/psicologo', UsuarioController.getPsicologoByPaciente);
-router.post('/recuperar-contrasena', UsuarioController.getContrasenaByEmailAndDNI);
-router.put('/:id/cambiar-contrasena', UsuarioController.updatePassword);
+router.post('/login', UsuarioController.login);
+router.post('/registro', UsuarioController.registro);
+
 
 
 

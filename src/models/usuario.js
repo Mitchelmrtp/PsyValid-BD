@@ -1,46 +1,19 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
-import Psicologo from './Psicologo.js';
-
 const Usuario = sequelize.define('Usuario', {
-  id_usuario: {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  apellido: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  correo: {
+  email: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
   },
-  DNI: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    unique: true,
-  },
-  NumCelular: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  contrasena: {
+  password: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  fecha_nacimiento: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-  Sexo: {
-    type: DataTypes.STRING,
-    allowNull: true,
   },
   rol: {
     type: DataTypes.STRING,
@@ -54,8 +27,5 @@ const Usuario = sequelize.define('Usuario', {
 
 });
 
-// Relación con Psicologo: Un Usuario puede tener muchos Psicologos
-Usuario.hasMany(Psicologo, { foreignKey: 'Usuario_id_usuario', as: 'psicologos' });
-Psicologo.belongsTo(Usuario, { foreignKey: 'Usuario_id_usuario', as: 'usuario' });
 
 export default Usuario;

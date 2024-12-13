@@ -1,24 +1,31 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../config/database.js';  // No importes Usuario aquí
+import sequelize from '../config/database.js'; 
 
 const Psicologo = sequelize.define('Psicologo', {
-  id_psicologo: {
+  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
+  },
+  nombres: {
+    type: DataTypes.STRING(30),
+    allowNull: false
+  },
+  apellidos: {
+    type: DataTypes.STRING(30),
+    allowNull: false
   },
   especialidad: {
     type: DataTypes.STRING(30),
     allowNull: false
   },
-  Usuario_id_usuario: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'Usuario',
-      key: 'id_usuario',
-    },
-    onDelete: 'CASCADE',
+  numero_colegiatura: {
+    type: DataTypes.STRING(30),
+    allowNull: false
+  },
+  descripcion: {
+    type: DataTypes.STRING(255),
+    allowNull: false
   }
 }, {
   timestamps: false,

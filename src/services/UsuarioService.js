@@ -44,7 +44,7 @@ const remove = async (id) => {
   await usuario.destroy();
 };
 
-const validate = async (correo, contrasena) => {
+const login = async (correo, contrasena) => {
   try {
     const usuario = await Usuario.findOne({ where: { correo, contrasena } });
 
@@ -59,4 +59,4 @@ const validate = async (correo, contrasena) => {
   }
 };
 
-export default { findAll, findOne, create, update, remove, validate };
+export default { findAll, findOne, create, update, remove, login };
