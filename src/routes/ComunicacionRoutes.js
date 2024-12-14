@@ -1,9 +1,12 @@
 import express from 'express';
-import { getChatHistory } from '../controllers/ChatController.js';
+import ComunicacionController from '../controllers/ComunicacionController.js';
 
 const router = express.Router();
 
-// Ruta para obtener el historial del chat
-router.get('/:room', getChatHistory);
+router.get('/', ComunicacionController.findAll);
+router.get('/:id', ComunicacionController.findOne);
+router.post('/', ComunicacionController.create);
+router.put('/:id', ComunicacionController.update);
+router.delete('/:id', ComunicacionController.remove);
 
 export default router;

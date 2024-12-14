@@ -1,10 +1,25 @@
-import ChatMessage from '../models/chatMessage.js';
+import Comunicacion from '../models/Comunicacion.js';
+const findAll = async () => {
+    return await Comunicacion.findAll();
+};
 
-class ChatService {
-  async saveMessage(data) {
-    const { room, message, user } = data;
-    await ChatMessage.create({ room, message, user });
-  }
-}
+const findOne = async (id) => {
+    return await Comunicacion.findByPk(id);
+};
 
-export default new ChatService();
+const create = async (data) => {
+    return await Comunicacion.create(data);
+};
+
+const update = async (id, data) => {
+    const horario = await Comunicacion.findByPk(id);
+    if (!horario) throw new Error('Comunicacion no encontrado');
+    await horario.update(data);
+    return horario;
+};
+
+const remove = async (id) => {
+    return await Comunicacion.destroy({ where: { id_horario: id } });
+};
+
+export default { findAll, findOne, create, update, remove };

@@ -1,12 +1,12 @@
 import express from 'express';
-import ReporteController from '../controllers/reporteController.js';
+import AdministradorController from '../controllers/AdministradorController.js';
 
 const router = express.Router();
 
-router.get('/', ReporteController.findAll);
-router.get('/:id', ReporteController.findOne);
-router.post('/', ReporteController.create);
-router.put('/:id', ReporteController.update);
-router.delete('/:id', ReporteController.remove);
+router.get('/', AdministradorController.findAll);
+router.get('/:id', AdministradorController.findOne);
+router.post('/', AdministradorController.create);
+router.put('/:id', AdministradorController.update);
+router.delete('/:id', AdministradorController.remove);
 
 export default router;

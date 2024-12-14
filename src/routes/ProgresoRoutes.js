@@ -1,12 +1,12 @@
 import express from 'express';
-import RevisionDiagnosticaController from '../controllers/revisionDiagnosticaController.js';
+import ProgresoController from '../controllers/Progreso_PacienteController.js';
 
 const router = express.Router();
 
-router.get('/', RevisionDiagnosticaController.findAll);
-router.get('/:id', RevisionDiagnosticaController.findOne);
-router.post('/', RevisionDiagnosticaController.create);
-router.put('/:id', RevisionDiagnosticaController.update);
-router.delete('/:id', RevisionDiagnosticaController.remove);
+router.get('/', ProgresoController.findAll);
+router.get('/:id', ProgresoController.findOne);
+router.post('/', ProgresoController.create);
+router.put('/:id', ProgresoController.update);
+router.delete('/:id', ProgresoController.remove);
 
 export default router;

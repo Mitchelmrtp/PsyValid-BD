@@ -1,21 +1,13 @@
 import express from 'express';
-import SesionController from '../controllers/SesionController.js';
+import SesionController from '../controllers/SesionController.js';  // Asegúrate de que la ruta es correcta
 
 const router = express.Router();
 
-// Crear una nueva sesión
-router.post('/', SesionController.createSesion);
-
-// Obtener todas las sesiones
 router.get('/', SesionController.findAll);
-
-// Obtener una sesión por ID
 router.get('/:id', SesionController.findOne);
+router.post('/login', SesionController.login);
+router.post('/registro', SesionController.registro);
 
-// Actualizar una sesión
-router.put('/:id', SesionController.updateSesion);
 
-// Eliminar una sesión
-router.delete('/:id', SesionController.removeSesion);
 
 export default router;

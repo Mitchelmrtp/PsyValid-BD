@@ -1,6 +1,4 @@
-// CuestionarioController.js
 import cuestionarioService from '../services/CuestionarioService.js';
-import respuestasCuestionarioService from '../services/RespuestaService.js';
 
 export const getAllCuestionarios = async (req, res) => {
     try {

@@ -1,12 +1,12 @@
 import express from 'express';
-import HorarioController from '../controllers/horarioController.js';
+import DsiponibilidadController from '../controllers/DisponibilidadController.js';
 
 const router = express.Router();
 
-router.get('/', HorarioController.findAll);
-router.get('/:id', HorarioController.findOne);
-router.post('/', HorarioController.create);
-router.put('/:id', HorarioController.update);
-router.delete('/:id', HorarioController.remove);
+router.get('/', DsiponibilidadController.findAll);
+router.get('/:id', DsiponibilidadController.findOne);
+router.post('/', DsiponibilidadController.create);
+router.put('/:id', DsiponibilidadController.update);
+router.delete('/:id', DsiponibilidadController.remove);
 
 export default router;
