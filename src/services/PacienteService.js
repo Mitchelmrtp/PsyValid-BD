@@ -9,10 +9,6 @@ const findAll = async () => {
     }
 };
 
-const create = async (data) => {
-    return await Paciente.create(data);
-  
-  };
 
 const findOne = async (id) => {
     try {
@@ -23,27 +19,6 @@ const findOne = async (id) => {
     }
 };
 
-const update = async (paciente) => {
-    try {
-        const foundPaciente = await Paciente.findByPk(paciente.idPaciente);
-        if (!foundPaciente) return null;
 
-        await foundPaciente.update(paciente);
-        return foundPaciente;
-    } catch (err) {
-        console.error(err);
-        return null;
-    }
-};
 
-const remove = async (id) => {
-    try {
-        const result = await Paciente.destroy({ where: { idPaciente: id } });
-        return result === 1;
-    } catch (err) {
-        console.error(err);
-        return null;
-    }
-};
-
-export default { findAll, create, findOne, update, remove };
+export default { findAll, findOne };
