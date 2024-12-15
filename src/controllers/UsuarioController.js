@@ -23,10 +23,10 @@ const findOne = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { correo, contrasena } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const usuario = await UsuarioService.login(correo, contrasena);
+    const usuario = await UsuarioService.login(email, password);
 
     if (usuario) {
       return res.status(200).json(usuario); 

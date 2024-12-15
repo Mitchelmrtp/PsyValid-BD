@@ -1,14 +1,14 @@
 GET http://localhost:3001/cursos
 ########
 
-POST http://ocalhost:3001/usuario/validate
+POST http://localhost:3001/usuarios/login
 Content-Type: application/json
 
 {
-    "correo": "juan.perez@example.com",
-    "password": "contrasena123",
-  
-  }
+  "email": "paciente@example.com",
+  "password": "123456"
+ 
+}
 ###
 
 PUT http://localhost:3001/cursos/

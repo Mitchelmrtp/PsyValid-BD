@@ -44,9 +44,9 @@ const remove = async (id) => {
   await usuario.destroy();
 };
 
-const login = async (correo, contrasena) => {
+const login = async (email, password) => {
   try {
-    const usuario = await Usuario.findOne({ where: { correo, contrasena } });
+    const usuario = await Usuario.findOne({ where: { email, password } });
 
     if (usuario) {
       return usuario;  // Devolveremos el objeto usuario con el rol
